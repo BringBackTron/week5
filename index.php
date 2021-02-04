@@ -12,6 +12,7 @@ session_start();
 
 //require the autoload file
 require_once('vendor/autoload.php');
+require_once('model/data-layer.php');
 
 //Create an instance of Base class
 $f3 = Base::instance();
@@ -26,6 +27,10 @@ $f3->route('GET /', function($f3) {
     $f3->set('ftemp', 67);
     $f3->set('color', 'purple');
     $f3->set('radius', 10);
+    $f3->set('fruits', getFruit());
+    $f3->set('salaries', getSalary());
+    $f3->set('desserts', getDesserts());
+    $f3->set('num', 10);
     echo "Home page";
     $view = new Template();
     echo $view->render('views/info.html');
